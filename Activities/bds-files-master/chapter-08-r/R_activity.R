@@ -1,0 +1,47 @@
+setwd("/Users/madisonzwink/Desktop/BIO_365/Activities/bds-files-master/chapter-08-r/")
+mtfs <- read.delim("motif_recombrates.txt", header=TRUE)
+head(mtfs,3)
+rpts <- read.delim("motif_repeats.txt", header=TRUE)
+head(rpts, 3)
+mtfs$pos <- paste(mtfs$chr, mtfs$motif_start, sep="-")
+rpts$pos <- paste(rpts$chr, rpts$motif_start, sep="-")
+head(mtfs, 2)
+head(rpts, 2)
+table(mtfs$pos %in% rpts$pos)
+i <- match(mtfs$pos, rpts$pos)
+mtfs$repeat_name <- rpts$name[i]
+head(mtfs[!is.na(mtfs$repeat_name), ], 3)
+mtfs_inner <- mtfs[!is.na(mtfs $repeat_name), ]
+nrow(mtfs_inner)
+recm <- merge(mtfs, rpts, by.x = "pos", by.y= "pos")
+head(recm, 2)
+recm <- merge(mtfs, rpts, by.x="pos", by.y="pos", all.x=TRUE)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1)
+library(ggplot2)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1)
+p <- p + geom_smooth(method="loess", se=FALSE, span=1/10)
+print(p)
+unique(mtfs$motif)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1, color="grey")
+p <- p + geom_smooth(method='loess', se=FALSE, span=1/10)
+p <- p + facet_wrap(~ motif)
+print(p)
+
+recm <- merge(mtfs, rpts, by.x="pos", by.y="pos", all.x=TRUE)
+head(recm, 3)
+
+htspt <- read.delim("hotspot_motifs.txt", header=TRUE)
+htspt$pos <- paste(htspt$chr, htspt$motif_start, sep="-")
+table(htspt$pos %in% rpts$pos)
+recm[ , c("motif","dist", "recom")]
+recm_sub <- recm[ , c("motif","dist", "recom")]
+head(recm_sub, 3)
+table(mtfs$repeat_name, mtfs$motif, useNA="ifany")
+table(mtfs$recom, mtfs$motif, useNA="ifany")
+recm_sub <- recm[ , c("motif", "recom")]
+summary(recm_sub)
+recm_split <- split(recm_sub, list(recm_sub$motif))
+summary(recm_split)
+# Split motif_recombrates into 2 text files 
+mtfs_1 <- read.delim("motif_1.txt", header=FALSE, col.names = c("recom", "motif"))
+mtfs_2 <- read.delim("motif_2.txt", header=FALSE, col.names = c("recom", "motif"))

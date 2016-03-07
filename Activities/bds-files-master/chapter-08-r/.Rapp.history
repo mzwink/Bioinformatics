@@ -1,0 +1,161 @@
+library(Rcmdr)
+## try http:// if https:// URLs are not supported#
+source("https://bioconductor.org/biocLite.R")#
+biocLite()
+biocLite(c("GenomicFeatures", "AnnotationDbi"))
+ls()
+load(".RData")
+install.packages()
+library(Rcmdr)
+library(biocLite)
+biocLite
+biocLite()
+library(BiocInstaller)
+install.packages("ggplot2")
+4 + 3
+4-3
+4 * 3
+4 / 3
+sqrt(3.5)
+print(x)
+print(sqrt(3.5))
+print(sqrt(3.5), digits=10)
+getOption('digits')
+options(digits=9)
+getOption('digits')
+options(digits=7)
+round(sqrt(3.5))
+help(log)
+?log
+help(bioConductor)
+x<-5
+x
+ls()
+getwd()
+cd /Users/madisonzwink/Desktop/BIO_490
+help()
+getwd()
+setwd("~/Desktop/BIO_365/bds-files-master/chapter-08-r")
+d <- read.csv("Dataset_S1.txt")
+head(d, n=3)
+nrow(d)
+ncol(d)
+dim(d)
+colnames(d)
+rownames(d)
+d$depth
+mean(d$depth)
+summary(d$depth)
+d[ , 1:2]
+d[1, c("start", "end")]
+d$cent <- d$start >= 25800000 & d$end <= 29700000
+table(d$cent)
+sum(d$cent)
+summary(d$total.SNPs)
+d$total.SNPs >= 85
+d[d$total.SNPs >=85, ]
+d[d$Pi > 16 & d$percent.GC > 80, ]
+d[d$Pi > 16 & d$percent.GC > 80, ]
+d[d$Pi > d$percent.GC > 80, c("start", "end", "depth", "Pi")]
+d[d$Pi > 16 & d$percent.GC > 80, c("start", "end", "depth", "Pi")]
+sum(d$percent.GC >= 80)
+sum(d$percent.GC >= .80)
+sum(d$X.GC >= 80)
+d[d$Pi > 16 & d$X.GC > 80, c("start", "end", "depth", "Pi")]
+summary(d$Pi[d$cent])
+summary(d$Pi[!d$cent])
+d$Pi > 3
+which(d$Pi >3)
+which(d$Pi > 10)[1:4]
+d[which.min(d$total.Bases),]
+d[which.max(d$depth),]
+d[d$Pi > 16 & d$X.GC > 80, ]
+install.packages(lattice)
+install.package(lattice)
+install.packages("ggplot2")
+library(ggplot2)
+d$position <- (d$end + d$start) / 2
+ggplot(d) + geom_point(aes(x=position, y=diversity))
+getwd
+getwd()
+colname(d)
+colnames(d)
+ggplot(d) + geom_point(aes(x=position, y=Divergence), alpha=0.01)
+ggplot(d) + geom_density(aes(x=Divergence), fill="black")
+ggplot(d) + geom_density(aes(x=diversity, fill=cent), alpha=0.4)
+ggplot(d) + geom_density(aes(x=Divergence, fill=cent), alpha=0.4)
+ggplot(d, aes(x=depth, y=total.SNPs)) + geom_point() + geom_smooth()
+ggplot(d, aes(x=X.GC, y=depth)) + geom_point() + geom_smooth()
+d$GC.binned <- cut(d$X.GC, 5)
+d$GC.binned
+table(d$GC.binned)
+cut(d$X.GC, c(0, 25, 50, 75, 100))
+ggplot(d) + geom_bar(aes(x=X.GC))
+ggplot(d) + geom_density(aes(x=depth, linetype=GC.binned), alpha=0.5)
+reps <- read.delim("chrX_rmsk.txt.gz", header=TRUE)
+head(reps, 3)
+common_repclass <- c("SINE", "LINE", "LTR", "DNA", "Simple_repeat")
+reps[reps$repClass %in% common_repclass, ]
+sort(table(rep$repClass), decreasing=TRUE)[1:5]
+sort(table(reps$repClass), decreasing=TRUE)[1:5]
+mtfs <- read.delim("motif_recombrates.txt", header=TRUE)
+head(mtfs, 3)
+rpts <- read.delim("motif_repeats.txt", header=TRUE)
+head(rpts, 3)
+mtfs$pos <- paste(mtfs$chr, mtfs$motif_start, sep="-")
+rpts$pos <- paste(rpts$chr, rpts$motif_start, sep="-")
+head(mtfs, 2)
+table(mtfs$pos %in% rpts$pos)
+i <- match(mtfs$pos, rpts$pos)
+table(is.na(i))
+mtfs$repeat_name <- rpts$name[i]
+head(mtfs[!is.na(mtfs$repeat_name), ],3)
+mtfs_inner <- mtfs[!is.na(mtfs $repeat_name), ]
+nrow(mtfs_inner)
+>recm <- merge(mtfs, rpts, by.x="pos", by.y="pos")
+recm <- merge(mtfs, rpts, by.x="pos", by.y="pos")
+head(recm, 2)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1)
+p <- p + geom_smooth(method="loess", se=FALSE, span=1/10)
+print(p)
+unique(mtfs$motif)
+ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1) + geom_smooth(aes(color=motif), method="loess", se=FALSE, span=1/10)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1, color="grey")
+p <- p + geom_smooth(method='loess', se=FALSE, span=1/16)
+p <- p + facet_grid(repeat_name ~ motif)
+print(p)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1, color="grey")
+p <- p + geom_smooth(method='loess', se=FALSE, span=1/16)
+p <- p + facet_wrap(~ motif, scales="free_y")
+print(p)
+p <- ggplot(mtfs, aes(x=dist, y=recom)) + geom_point(size=1, color="grey")
+p <- p + geom_smooth(method='loess', se=FALSE, span=1/16)
+p <- p + facet_wrap(~ chr)
+print(p)
+ll <- list(a=rnorm(6, mean=1), b=rnorm(6, mean=4), c=rnorm(6, mean=6))
+ll
+ll_means <- numeric(length(ll))
+for(i in seq_along(ll)){}
+for(i in seq_along(ll)){}
+for(i in seq_along(ll)){ ll_means[i] <- mean(ll[[i]]) }
+lapply(ll, mean)
+library(parallel)
+results <- mclapply(my_samples, slowFunction)
+ind_1 <- list(loci_1=c("T", "T"), loci_2=c("T", "G"), loci_3=c("C", "G"))
+ind_2 <- list(loci_1=c("A", "A"), loci_2=c("G", "G"), loci_3=c("C", "G"))
+mapply(function(a, b) length(intersect(a,b)), ind_1, ind_2)
+d_split <- split(d$depth, d$GC.binned)
+str(d_split)
+lapply(d_split, mean)
+unlist(lapply(d_split, mean))
+sapply(d_split, mean)
+dpth_summ <- lapply(split(d$depth, d$GC.binned), summary)
+dpth_summ
+install.packages("dplyr")
+library(dyplyr)
+library(dplyr)
+d_df <- tbl_df(d)
+d_df
+select(d_df, start, end, Pi, Recombination, depth)
+select(d_df, -(start:cent))
+filter(d_df, Pi>16, X.GC > 80)
