@@ -5,7 +5,7 @@
 ### 1. What is the average recombination rate per motif type?
 
 	motifs: 	CCTCCCTAGCCAC 	CCTCCCTGACCAC
-	Avg. Rate: 	
+	Avg. Rate:  	1.9765			2.1309
 	
 	
 
@@ -16,6 +16,24 @@
 ### 3. How do the recombination rates of the motif types differ from background (i.e., the recombination rate across all sequences; you will want to look at summary statistics and make a plot for this question).
 
 	Find out how to do summary of the plot in 2
+	
+	> summary(mtfs_1)
+     recom                   motif      
+ 	Min.   : 0.0002   CCTCCCTGACCAC:12034  
+ 	1st Qu.: 0.2149                        
+ 	Median : 0.6425                        
+	 Mean   : 2.1309                        
+	 3rd Qu.: 2.1077                        
+ 	Max.   :56.2775                        
+	> summary(mtfs_2)
+     recom                   motif     
+ 	Min.   : 0.0001   CCTCCCTAGCCAC:8016  
+ 	1st Qu.: 0.1627                       
+ 	Median : 0.4543                       
+ 	Mean   : 1.9765                       
+ 	3rd Qu.: 1.4259                       
+ 	Max.   :74.0966                       
+ 
 
 ### 4. How many motif repeats are in motif hotspots?
 
@@ -24,6 +42,8 @@
 	10832  9218 
 
 ### 5. How does the recombination rate of motifs in hotspots differ from motif repeats?
+
+	
 
 
 
