@@ -78,7 +78,15 @@ Transcriptome assembly:
 
 Quantitative Proteomics:
 
-- Huh????
+
+- Proteins from the RNA
+
+- Translated immediately or later if RNA is stable
+
+- Should have an overlap between proteome and transcriptome
+
+
+
 
 MS/MS data analysis:
 
@@ -164,14 +172,124 @@ Accumulating evidence suggests that flatwing’s rapid response to selection on 
 
 
 
+---
 
 
+__In-Class Discussion__
 
+Flatwing - persists because they don't attract preditors and able to hang around the males that attract females
 
+Genes involved in this phenotype?
 
+Map the proteome and transcriptome
 
+How well do these link up
 
+Programs to help when you don't have a reference genome, help assign functions when you don't have a genome sequence for your organism
 
+Could still use BLAST2GO for the crickets but better to compare to similar organism like Drosophila
+
+---
+
+_Gene Ontology Consortium_
+
+	Molecular function
+	
+	Biological process
+	
+_Blast2GO_
+
+	See where your data fits in the go categories/database
+	
+	May have a similar function
+	
+---
+
+Figure 1
+
+	Phenotypic difference between wild-type and flatwing males
+	
+	Flatwing males look similar to female wings
+	
+	X-linked mutation
+	
+	
+Figure 2
+
+A)
+
+	Transcripts 
+	
+	Differential expression: Amount of RNA/transcript abundance
+	
+	negative = down-regulation compared to wild-type
+	
+	In mutants, do you have upregulation or downregulation compared to wild-types
+	
+	red = significant differential expression
+	
+	black = not significant
+	
+	x-axis = abundance, most red are negative (down-regulated)
+	
+	Fold change = The amount that is above or below wild-type
+	
+	Up or down compared to wild-type (x) and by how much (y)
+	
+	
+B)
+
+	Blast2Go
+	
+	List associated with level 3 Biological Process and Molecular Functions
+	
+	Try to generate hypotheses - function associated with the RNA-seq gene expression 
+	
+	Scores = number of differentially expressed genes with that function
+	
+	
+Figure 3
+
+	Wing bud gene expression analysis
+	
+	A) and C)	- principal component analysis (PCA)
+	
+	A and B are from one set
+	
+	C and D are another
+	
+	A and B are looking at all assembled sequences (everything)
+	
+	C and D are looking at differentially expressed (DE)
+	
+	Grouping clusters that may be similar, describing multivariate data in PCA (2D)
+	
+	More spread out in A and in C, flatwings are much closer/grouped
+	
+	Heatmaps of correlations:
+	
+	Blue = lower correlation
+	
+	Red = Higher correlation
+	
+	Less correlation between the flatwings as a group compared to what they see between normal samples as a group
+	
+	Look at whole set and DE
+	
+	At a whole - lower correlation
+	DE transcripts - tight agreement
+	
+	Mutant lines are much more similar = universal pleitropy
+	
+	Selection brings that mutation with the alleles close to it = makes sense as to why the flatwings are more similar to one another (genotypes are more similar)
+		
+	One gene affecting multiple phenotypes
+	
+	
+Figure 4
+
+	Could only find 3 DE transcripts and proteins common from the transcriptome and proteome
+		
 
 
 		
