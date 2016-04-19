@@ -2,8 +2,7 @@
 
 ---
 
-
-Species to Choose From:
+Morning Glory Species:
 
 	ALUC
 	EMBR
