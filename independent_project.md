@@ -42,5 +42,6 @@ _De Novo Assembly and Annotation of the Transcriptome of the Agricultural Weed I
 	3) Examine gene expression changes of artificially diverged herbicide resistant selection lines using this reference transcriptome
 	4) Validate gene expression differences using quantitative polymerase chain reaction(qPCR)	Overall want to what causes the phenotypic variation 
 	
-	
+Material and Methods
+	
 	
